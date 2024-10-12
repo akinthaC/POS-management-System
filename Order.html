@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS Order Screen</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        body {
+            background-color: #111;
+            color: #fff;
+        }
+        .navbar {
+            background-color: #000;
+        }
+        .navbar-nav .nav-link {
+            color: #ff0;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+        /* Hover effect for navbar links */
+
+        .navbar-nav .nav-link:hover {
+            color: yellow;
+
+        }
+        .card {
+            background-color: #222;
+            border: none;
+            color: white;
+        }
+        .form-control {
+            background-color: #444;
+            border: none;
+            color: white;
+        }
+        .btn-purchase {
+            background-color: #ff0;
+            color: #000;
+            border: none;
+        }
+        .btn-purchase:hover {
+            background-color: #ffcc00;
+        }
+        .table {
+            background-color: #222;
+            color: white;
+        }
+        #img2{
+            position: absolute;
+            width: 230px;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <div class="container-fluid">
+            <a class="navbar-brand text-white " style="font-weight: bold" href="#">POS System</a>
+            <img id="img2" src="assest/images/img_1.png" alt="">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <!-- Center Links -->
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item me-5">
+                        <a class="nav-link  text-warning fs-5" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item me-5">
+                        <a class="nav-link active text-warning fs-5" aria-current="page" href="#">Orders</a>
+                    </li>
+                    <li class="nav-item me-5">
+                        <a class="nav-link text-white fs-5" href="#">Item</a>
+                    </li>
+                    <li class="nav-item me-1">
+                        <a class="nav-link text-white  fs-5" href="#">Customer</a>
+                    </li>
+                </ul>
+                <!-- Right side (Settings and Log Out) -->
+                <!-- Right side (Settings and Log Out) -->
+                <div class="d-flex align-items-center">
+                    <a href="#" class="nav-link  me-3"><i class="fas fa-cog "></i> Setting</a>
+                    <a href="#" class="nav-link  me-1"><i class="fas fa-sign-out-alt "></i> Log Out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- Main Content -->
+<div class="container mt-2">
+    <h1 class="text-center">Orders</h1>
+
+    <div class="row mt-2">
+        <!-- Invoice Details -->
+        <div class="col-md-4">
+            <div class="card" style="border-radius: 20px;">
+                <div class="card-header text-white" style="background-color: black; border-radius: 20px 20px 0 0;">
+                    Invoice details
+                </div>
+                <div class="card-body">
+                    <form>
+                        <label for="order-id" class="form-label">Order id:</label>
+                        <input type="text" class="form-control" id="order-id" placeholder="Order id">
+
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Date:</label>
+                        <input type="date" class="form-control" id="date">
+                    </div>
+                    <div class="mb-3">
+                        <label for="customer-id" class="form-label">Customer:</label>
+                        <input type="text" class="form-control" id="customer-id" placeholder="Customer">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name:</label>
+                        <input type="text" class="form-control" id="name" placeholder="Customer name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="salary" class="form-label">Salary:</label>
+                        <input type="text" class="form-control" id="salary" placeholder="salary">
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address:</label>
+                        <input type="text" class="form-control" id="address" placeholder="Address">
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item Selection -->
+        <div class="col-md-4">
+            <div class="card" style="border-radius: 20px;">
+                <div class="card-header text-white" style="background-color: black; border-radius: 20px 20px 0 0">
+                   Item Select
+                </div>
+                <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="item" class="form-label">Item:</label>
+                        <input type="text" class="form-control" id="item" placeholder="Item">
+                    </div>
+                    <div class="mb-3">
+                        <label for="item-code" class="form-label">Item Code:</label>
+                        <input type="text" class="form-control" id="item-code" placeholder="Item code">
+                    </div>
+                    <div class="mb-3">
+                        <label for="item-name" class="form-label">Item Name:</label>
+                        <input type="text" class="form-control" id="item-name" placeholder="Item name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price:</label>
+                        <input type="text" class="form-control" id="price" placeholder="Price">
+                    </div>
+                    <div class="mb-3">
+                        <label for="qty" class="form-label">QTY on hand:</label>
+                        <input type="text" class="form-control" id="qty" placeholder="Quantity on hand">
+                    </div>
+                    <div class="mb-3">
+                        <label for="order-qty" class="form-label">Order Quantity:</label>
+                        <input type="text" class="form-control" id="order-qty" placeholder="Order quantity">
+                    </div>
+                    <button type="button" class="btn btn-dark w-100" style="background: black; border-radius: 10px; border: 1px solid yellow; box-shadow: 1px 4px 10px 0 white">Add Item</button>
+                </form>
+            </div>
+            </div>
+        </div>
+
+        <!-- Total and Purchase Section -->
+        <div class="col-md-4" >
+            <div class="card p-3" style="border-radius: 20px">
+                <h5 class="mb-3">Total:</h5>
+                <h5 class="mb-3">Sub Total:</h5>
+                <form>
+
+                    <div class="mb-3">
+                        <label for="cash" class="form-label">Cash:</label>
+                        <input type="text" class="form-control" id="cash" placeholder="Cash">
+                    </div>
+                    <div class="mb-3">
+                        <label for="discount" class="form-label">Discount:</label>
+                        <input type="text" class="form-control" id="discount" placeholder="Discount">
+                    </div>
+                    <div class="mb-3">
+                        <label for="balance" class="form-label">Balance:</label>
+                        <input type="text" class="form-control" id="balance" placeholder="Balance">
+                    </div>
+                    <button type="button" class="btn btn-purchase w-100">Purchase</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table Section -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <table class="table table-dark table-striped">
+                <thead>
+                <tr>
+                    <th>Column Title</th>
+                    <th>Column Title</th>
+                    <th>Column Title</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                    <td>Fusce eu lobortis leo, id dapibus felis.</td>
+                    <td>Donec nunc ligula, tempor sed luctus at, tincidunt vel lorem.</td>
+                </tr>
+                <tr>
+                    <td>Nulla facilisi. Proin et erat vitae elit interdum interdum.</td>
+                    <td>Vivamus facilisis erat ac nulla placerat, vitae facilisis nulla.</td>
+                    <td>Curabitur ac ligula quis quam congue efficitur.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
