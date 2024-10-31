@@ -9,21 +9,64 @@ const generateNextItemId =() =>{
     $('#itemQuantity').val(null)
 }
 
-const loadItemTable =() => {
-    $('#ItemTableBody').empty();
-
-    item_array.map((item, index) => {
-        console.log(item)
-        let data = `<tr> <td>${item.itemCode}</td> <td>${item.itemName}</td> <td>${item.price}</td> <td>${item.qty}</td></tr>`;
-
-        $('#ItemTableBody').append(data);
-        generateNextItemId()
-
-    });
+function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = `expires=${d.toUTCString()}`;
+    document.cookie = `${name}=${value}; ${expires}; path=/`;
 }
 
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+
+}
+
+function loadItemArrayFromCookies() {
+    const itemArrayCookie = getCookie("item_array");
+    item_array = itemArrayCookie ? JSON.parse(itemArrayCookie) : [];
+}
+
+const deleteCookie = (name) => {
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+};
+
+
+function initialize() {
+
+    const itemArrayCookie = getCookie("item_array");
+    item_array = itemArrayCookie ? JSON.parse(itemArrayCookie) : [];
+
+    loadItemTable()
+
+
+}
+
+const loadItemTable = () => {
+    $('#ItemTableBody').empty();
+
+    // Loop through `item_array` and add each item as a row in the table
+    item_array.forEach((item) => {
+        let data = `<tr> 
+             <td>${item._itemCode}</td> 
+            <td>${item._itemName}</td> 
+            <td>${item._price}</td> 
+            <td>${item._qty}</td>
+        </tr>`;
+        $('#ItemTableBody').append(data);
+    });
+
+    // Generate the next item ID based on array length
+    generateNextItemId();
+};
+
+
+initialize();
+
 $('#ItemNew').on('click', function(){
-    generateNextItemId()
+    generateNextItemId();
+
 })
 $('#add_new_Item_Button').on('click', function(){
 
@@ -39,6 +82,10 @@ $('#add_new_Item_Button').on('click', function(){
 
     item_array.push(item);
     console.log(item);
+    deleteCookie("item_array");
+    setCookie("item_array", JSON.stringify(item_array), 7);
+    getCookie(item_array);
+    loadItemArrayFromCookies();
 
     loadItemTable();
     Swal.fire({
@@ -57,9 +104,9 @@ $('#itemSearch').on('click', function() {
 
     // Map searchType to actual customer object properties
     if (searchType === "Name") {
-        searchType = "itemName";
+        searchType = "_itemName";
     } else if (searchType === "ID") {
-        searchType = "itemCode";
+        searchType = "_itemCode";
     }
     // Filter the customer array based on the search criteria
     const results = item_array.filter(item => {
@@ -72,10 +119,10 @@ $('#itemSearch').on('click', function() {
         console.log("Search results:", results);
         results.forEach(item => {
             const cusData = `<tr>
-                <td>${item.itemCode}</td>
-                <td>${item.itemName}</td>
-                <td>${item.price}</td>
-                <td>${item.qty}</td>
+               <td>${item._itemCode}</td> 
+                <td>${item._itemName}</td> 
+                <td>${item._price}</td> 
+                <td>${item._qty}</td>
             </tr>`;
             $('#ItemTableBody').append(cusData);
         });
@@ -96,10 +143,10 @@ $('#ItemTableBody').on('click', 'tr', function() {
     console.log(item_array);
     let item_row = item_array[selected_item_index];
 
-    $('#itemCode1').val(item_row.itemCode);
-    $('#itemName1').val(item_row.itemName);
-    $('#itemPrice1').val(item_row.price);
-    $('#itemQuantity1').val(item_row.qty);
+    $('#itemCode1').val(item_row._itemCode);
+    $('#itemName1').val(item_row._itemName);
+    $('#itemPrice1').val(item_row._price);
+    $('#itemQuantity1').val(item_row._qty);
 
     console.log("Selected customer:", item_row);
 
@@ -116,11 +163,19 @@ $('#add_update_Item_Button').on('click', function() {
 
     let item =new ItemModel(code, name, price, qty);
     item_array[selected_item_index] = item;
+    deleteCookie(item_array)
+    setCookie("item_array", JSON.stringify(item_array), 7);
+    getCookie(item_array);
+    loadItemArrayFromCookies();
     loadItemTable();
 });
 
 $('.delete_Item_Button').on('click', function() {
     item_array.splice(selected_item_index, 1);
+    deleteCookie(item_array)
+    setCookie("item_array", JSON.stringify(item_array), 7);
+    getCookie(item_array);
+    loadItemArrayFromCookies();
     loadItemTable()
     $('#itemModal1').modal('hide');
 });

@@ -4,44 +4,43 @@ import CustomerModel from "../model/customerModel.js";
 let customer_array = [];
 let selected_cus_index;
 
-// Function to set a cookie
 function setCookie(name, value, days) {
-    let expires = "";
-    if (days) {
-        const date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    const d = new Date();
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = `expires=${d.toUTCString()}`;
+    document.cookie = `${name}=${value}; ${expires}; path=/`;
 }
 
 function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(";").shift();
-    return null;
+    if (parts.length === 2) return parts.pop().split(';').shift();
+
 }
 
-function initialize() {
-    const customerData = getCookie("customerArray");
-    if (customerData) {
-        customer_array = JSON.parse(customerData); // Load cookie data into customer_array
-        console.log("Customer data loaded successfully.");
-        loadCustomerTable();
-    } else {
-        console.log("No customer data found in cookies.");
-    }
+function loadCustomerArrayFromCookies() {
+    const CusArrayCookie = getCookie("customerArray");
+    customer_array = CusArrayCookie ? JSON.parse(CusArrayCookie) : [];
 }
 
-// Function to delete a cookie by name
-function deleteCookie(name) {
-    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-}
 
-// Function to generate the next customer ID and clear form fields
+const deleteCookie = (name) => {
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+};
+
 const generateNextCusId = () => {
     $('#cusId').val(customer_array.length + 1);
     $('#cusName, #cusAddress, #cusContact, #cusEmail').val(null);
+}
+
+function initialize() {
+
+    const CusArrayCookie = getCookie("customerArray");
+    customer_array = CusArrayCookie ? JSON.parse(CusArrayCookie) : [];
+
+    loadCustomerTable();
+
+
 }
 
 // Load customer data into the table
@@ -49,18 +48,18 @@ const loadCustomerTable = () => {
     $('#customerTableBody').empty();
     customer_array.forEach((item, index) => {
         let cusData = `<tr> 
-            <td>${item.cus_id}</td> 
-            <td>${item.cus_name}</td> 
-            <td>${item.address}</td> 
-            <td>${item.contact}</td> 
-            <td>${item.email}</td>
+            <td>${item._cus_id}</td> 
+            <td>${item._cus_name}</td> 
+            <td>${item._address}</td> 
+            <td>${item._contact}</td> 
+            <td>${item._email}</td>
         </tr>`;
         $('#customerTableBody').append(cusData);
     });
     generateNextCusId();
 }
 
-/*initialize();*/
+initialize();
 
 $('#cusNew').on('click', function() {
     generateNextCusId();
@@ -80,6 +79,8 @@ $('#cus_add-button').on('click', function() {
     customer_array.push(customer);
     deleteCookie("customerArray");
     setCookie("customerArray", JSON.stringify(customer_array), 7);
+    getCookie("customerArray");
+    loadCustomerArrayFromCookies()
     loadCustomerTable();
 });
 
@@ -90,11 +91,11 @@ $('#cusSearch').on('click', function() {
 
     // Map searchType to actual customer object properties
     if (searchType === "Name") {
-        searchType = "cus_name";
+        searchType = "_cus_name";
     } else if (searchType === "ID") {
-        searchType = "cus_Id";
+        searchType = "_cus_id";
     } else if (searchType === "Contact") {
-        searchType = "contact";
+        searchType = "_contact";
     }
 
     // Filter the customer array based on the search criteria
@@ -108,11 +109,11 @@ $('#cusSearch').on('click', function() {
         console.log("Search results:", results);
         results.forEach(customer => {
             const cusData = `<tr>
-                <td>${customer.cus_Id}</td>
-                <td>${customer.cus_name}</td>
-                <td>${customer.address}</td>
-                <td>${customer.contact}</td>
-                <td>${customer.email}</td>
+                <td>${customer._cus_id}</td> 
+                <td>${customer._cus_name}</td> 
+                <td>${customer._address}</td> 
+                <td>${customer._contact}</td> 
+                <td>${customer._email}</td>
             </tr>`;
             $('#customerTableBody').append(cusData);
         });
@@ -132,11 +133,11 @@ $('#customerTableBody').on('click', 'tr', function() {
 
     console.log("Selected customer:", customer_row);
 
-    $('#cusId1').val(customer_row.cus_Id);
-    $('#cusName1').val(customer_row.cus_name);
-    $('#cusAddress1').val(customer_row.address);
-    $('#cusContact1').val(customer_row.contact);
-    $('#cusEmail1').val(customer_row.email);
+    $('#cusId1').val(customer_row._cus_id);
+    $('#cusName1').val(customer_row._cus_name);
+    $('#cusAddress1').val(customer_row._address);
+    $('#cusContact1').val(customer_row._contact);
+    $('#cusEmail1').val(customer_row._email);
 });
 
 $('#cus_Update_button').on('click', function() {
@@ -151,6 +152,8 @@ $('#cus_Update_button').on('click', function() {
     customer_array[selected_cus_index] = customer;
     deleteCookie("customerArray");
     setCookie("customerArray", JSON.stringify(customer_array), 7);
+    getCookie("customerArray")
+    loadCustomerArrayFromCookies()
     loadCustomerTable();
     $('#cusModal1').modal('hide');
 });
@@ -160,6 +163,8 @@ $('.cus_Delete_button').on('click', function() {
         customer_array.splice(selected_cus_index, 1);
         deleteCookie("customerArray");
         setCookie("customerArray", JSON.stringify(customer_array), 7);
+        getCookie("customerArray");
+        loadCustomerArrayFromCookies();
         loadCustomerTable();
         $('#cusModal1').modal('hide');
     } else {
