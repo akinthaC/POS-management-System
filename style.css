@@ -1,0 +1,240 @@
+
+/*customer*/
+
+body {
+    background-color: #111;
+    color: #fff;
+}
+.navbar {
+    background-color: #000;
+}
+.navbar-nav .nav-link {
+    color: #ff0;
+}
+.navbar-nav .nav-link:hover {
+    font-weight: bold;
+}
+.card {
+    background-color: #222;
+    border: none;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #8b0000;
+    border: none;
+}
+
+.card{
+    box-shadow: 1px 1px 5px 1px white;
+    background: rgba(217, 217, 217, 10%);
+}
+
+#img2{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 500px;
+}
+
+
+/*Order*/
+body {
+    background-color: #111;
+    color: #fff;
+}
+.navbar {
+    background-color: #000;
+}
+.navbar-nav .nav-link {
+    color: #ff0;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+/* Hover effect for navbar links */
+
+.navbar-nav .nav-link:hover {
+    color: yellow;
+
+}
+.card {
+    background-color: #222;
+    border: none;
+    color: white;
+}
+.form-control {
+    background-color: #444;
+    border: none;
+    color: white;
+}
+.btn-purchase {
+    background-color: #ff0;
+    color: #000;
+    border: none;
+}
+.btn-purchase:hover {
+    background-color: #ffcc00;
+}
+.table {
+    background-color: #222;
+    color: white;
+}
+#img2{
+    position: absolute;
+    width: 230px;
+    top: 0;
+    left: 0;
+}
+
+
+/*DashBoard*/
+body {
+    background-color: #111;
+    color: #fff;
+}
+.navbar {
+    background-color: #000;
+}
+.navbar-nav .nav-link {
+    color: #ff0;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+/* Hover effect for navbar links */
+
+.navbar-nav .nav-link:hover {
+    color: yellow;
+
+}
+.overview-section {
+    margin-top: 30px;
+}
+.card {
+    background-color: #222;
+    border: none;
+    padding: 20px;
+    text-align: center;
+}
+.chart {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+}
+#img2{
+    position: absolute;
+    width: 230px;
+    top: 0;
+    left: 0;
+}
+
+
+/*singUp*/
+body {
+    background-color: black; /* Set background color to black */
+    height: 100vh; /* Full viewport height */
+    position: relative; /* Set position relative for absolute children */
+    margin: 0; /* Remove default margin */
+}
+.card {
+    background: rgba(217, 217, 217, 10%); /* Semi-transparent background color */
+    /* You can adjust the alpha value (0.9) for more or less opacity */
+    border-radius: 1.5em; /* Rounded corners */
+}
+
+#img3{
+    width: 500px;
+    position: absolute;
+    right: -40em;!important;
+    top: 55em!important;
+    left: 0;!important;
+    bottom: 10em;
+    margin: 0;
+
+}
+#img4{
+    position: absolute;
+    width: 230px;
+}
+
+
+
+/*Item*/
+body {
+    background-color: #111;
+    color: #fff;
+}
+.navbar {
+    background-color: #000;
+}
+.navbar-nav .nav-link {
+    color: #ff0;
+}
+.navbar-nav .nav-link:hover {
+    color: yellow;
+}
+.card {
+    background-color: #222;
+    border: none;
+    color: white;
+    box-shadow: 1px 1px 5px 1px white;
+    background: rgba(217, 217, 217, 10%);
+}
+.btn-danger {
+    background-color: #8b0000;
+    border: none;
+}
+#img3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+}
+
+
+
+/*Item structure*/
+.modal-content {
+    background-color: #3c3c3c; /* Dark background */
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
+.modal-header {
+    background-color: #000; /* Black background for header */
+    color: #fff; /* White text */
+    border-radius: 15px 15px 0 0;
+}
+.form-label {
+    color: #ffffff; /* Yellow label text */
+}
+
+.form-control {
+    color: #070707; /* Yellow label text */
+    font-weight: bold;
+}
+
+.form-control {
+    background-color: #d3d3d3; /* Gray background for input fields */
+    border: none;
+    border-radius: 5px;
+}
+.btn-custom {
+    background-color: #000; /* Black button background */
+    border: 2px solid #f8ff00; /* Yellow border */
+    color: #fff; /* White text */
+    width: 100px;
+    margin-right: 10px;
+}
+.btn-custom:hover {
+    background-color: #f8ff00; /* Yellow on hover */
+    color: #000; /* Black text on hover */
+}
+.modal-footer {
+    justify-content: center; /* Center the buttons */
+}
+
+.btn-close {
+    background-color: #ffffff; /* White background */
+    border: none;
+    opacity: 1; /* Fully visible */
+}
