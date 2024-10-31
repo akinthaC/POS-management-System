@@ -6,6 +6,7 @@
     <title>Login Page</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/style.css" rel="stylesheet">
     <style>
         body {
             background-color: black; /* Set background color to black */
@@ -35,58 +36,736 @@
             width: 230px;
         }
 
+        #img5{
+            width: 30em;!important;
+            top: 5em;!important;
+            position: absolute;!important;
+        }
+
+        #img6{
+            width: 30em;!important;
+            top: 5em;!important;
+            left: 60em;!important;
+            position: absolute;!important;
+        }
+
     </style>
 </head>
 <body>
 
-<!-- Centered Image -->
-<!-- Login Form Container -->
 
-<img id="img1" src="assest/images/img.png" alt="">
-<img id="img2" src="assest/images/img_1.png" alt="">
+<!--
+<section>
+
+    <img id="img1" src="assest/images/img.png" alt="">
+    <img id="img2" src="assest/images/img_1.png" alt="">
 
 
-<div class="container d-flex justify-content-center align-items-center vh-100" style="min-height: 100vh;">
-    <div class="card p-4 shadow" style="width: 40em; height: 30em; border-radius: 2em;">
-        <h2 class="text-center mb-4 text-white" style="font-family: Syncopate, sans-serif; font-weight: bold; font-style: normal; font-size: 35px; letter-spacing: 3px">Login</h2>
+    <div class="container d-flex justify-content-center align-items-center vh-100" style="min-height: 100vh;">
+        <div class="card p-4 shadow" style="width: 40em; height: 30em; border-radius: 2em;">
+            <h2 class="text-center mb-4 text-white" style="font-family: Syncopate, sans-serif; font-weight: bold; font-style: normal; font-size: 35px; letter-spacing: 3px">Login</h2>
 
-        <!-- Login Form -->
-        <form>
-            <div class="mb-3 d-flex justify-content-center">
-                <div>
-                    <label for="userName" class="form-label text-white">User Name</label>
-                    <input type="text" class="form-control" id="userName" placeholder="Enter your user name" style="width: 25em ">
+            &lt;!&ndash; Login Form &ndash;&gt;
+            <form>
+                <div class="mb-3 d-flex justify-content-center">
+                    <div>
+                        <label for="userName" class="form-label text-white">User Name</label>
+                        <input type="text" class="form-control" id="userName" placeholder="Enter your user name" style="width: 25em ">
+                    </div>
+                </div>
+                &lt;!&ndash; Password Input &ndash;&gt;
+                <div class="mb-3 d-flex justify-content-center">
+                    <div class="form-outline mb-4">
+                        <label for="password" class="form-label text-white">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter your password "style="width: 25em ">
+                    </div>
+                </div>
+
+                &lt;!&ndash; Forgot Password Link &ndash;&gt;
+                <div class="position-relative" style="height: 50px;">
+                    <a href="#" class="position-absolute" style="top:-20px; left:100px;">Forgot password?</a>
+                </div>
+
+                &lt;!&ndash; Login Button &ndash;&gt;
+
+                <div class="d-flex justify-content-center mb-4" style="top: -20px; right:200px;">
+                    <button type="submit" class="btn btn-primary" style="background: black; width: 200px; border: 2px solid yellow">Login</button>
+
+                </div>
+
+                <hr style="border: 0; height: 3px; background-color: white; margin: 20px 0;">
+                &lt;!&ndash; Sign Up Link &ndash;&gt;
+                <div class="text-center mt-2 text-white">
+                    <p>Don't have an account? <a href="#">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</section>
+
+&lt;!&ndash;//sing up&ndash;&gt;
+<section>
+    &lt;!&ndash;<img id="img3" src="assest/images/img.png" alt="">&ndash;&gt;
+
+
+
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="card shadow-lg p-4 mx-auto" style="max-width: 100em; width: 100%; border-radius: 2em; padding:3em">
+                <div class="card-body">
+                    <h1 class="text-center mb-4 text-white" style="font-family: Syncopate, sans-serif; font-weight: bold; font-style: normal;letter-spacing: 3px">Sign Up</h1>
+                    <form>
+                        &lt;!&ndash; Full Name and Email input &ndash;&gt;
+                        <div class="row mb-4">
+                            <div class="col">
+                                <label class="form-label text-white" for="fullname">Full name</label>
+                                <input type="text" id="fullname" class="form-control" placeholder="Enter full name" required>
+                            </div>
+                            <div class="col">
+                                <label class="form-label text-white" for="email">E-mail</label>
+                                <input type="email" id="email" class="form-control" placeholder="Enter email" required>
+                            </div>
+                        </div>
+                        &lt;!&ndash; Username and Password input &ndash;&gt;
+                        <div class="row mb-4">
+                            <div class="col">
+                                <label class="form-label text-white" for="username">Username</label>
+                                <input type="text" id="username1" class="form-control" placeholder="Enter username" required>
+                            </div>
+                            <div class="col">
+                                <label class="form-label text-white" for="password">Password</label>
+                                <input type="password" id="password1" class="form-control" placeholder="Enter password" required>
+                            </div>
+                        </div>
+                        &lt;!&ndash; Sign up button &ndash;&gt;
+                        <div class="d-flex justify-content-center mb-4">
+                            <button type="submit" class="btn btn-dark w-50" style="background: black; width: 200px; border: 2px solid yellow">Sign Up</button>
+                        </div>
+
+                        <hr style="border: 0; height: 3px; background-color: white; margin: 20px 0;">
+
+                        &lt;!&ndash; Sign up link &ndash;&gt;
+                        <div class="text-center text-white">
+                            <span>Do you have an account?</span><br>
+                            <a href="#" class="text-decoration-none">Login here....</a>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <!-- Password Input -->
-            <div class="mb-3 d-flex justify-content-center">
-                <div class="form-outline mb-4">
-                    <label for="password" class="form-label text-white">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Enter your password "style="width: 25em ">
+        </div>
+    </div>
+
+</section>
+-->
+
+<!-- Header Section -->
+<header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <div class="container-fluid">
+            <a class="navbar-brand text-white " style="font-weight: bold" href="#">POS System</a>
+            <img id="img2" src="assest/images/img_1.png" alt="">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <!-- Center Links -->
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item me-5">
+                        <a id="home-nav"  class="nav-link active text-warning fs-5" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li id="orders-nav" class="nav-item me-5">
+                        <a class="nav-link text-white fs-5" href="#">Orders</a>
+                    </li>
+                    <li id="items-nav" class="nav-item me-5">
+                        <a class="nav-link text-white fs-5" href="#">Item</a>
+                    </li>
+                    <li class="nav-item me-1">
+                        <a id="customers-nav" class="nav-link text-white  fs-5" href="#">Customer</a>
+                    </li>
+                </ul>
+                <!-- Right side (Settings and Log Out) -->
+                <!-- Right side (Settings and Log Out) -->
+                <div class="d-flex align-items-center">
+                    <a href="#" class="nav-link  me-3"><i class="fas fa-cog "></i> Setting</a>
+                    <a href="#" class="nav-link  me-1"><i class="fas fa-sign-out-alt "></i> Log Out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!--//DashBoard-->
+<section id="home-section">
+    <!-- Overview Section -->
+    <div class="container overview-section ">
+        <h1 class="text-center">Overview</h1>
+        <div class="row  mt-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <h5>Order Count</h5>
+                    <p>0</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <h5>Most Selling Item</h5>
+                    <p>None</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <h5>Customer Count</h5>
+                    <p>0</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart Section -->
+        <div class="row chart-container mt-4">
+            <div class="col-md-6  mt-5">
+                <div class="chart">
+                    <h5>Stock</h5>
+                    <div class="row">
+                        <div class="col-6 text-center">
+                            <div class="border border-light rounded-circle p-4 mx-auto" style="width: 100px; height: 100px;">
+                                <span class="d-block">50%</span>
+                                <small>In Stock</small>
+                            </div>
+                        </div>
+                        <div class="col-6 text-center">
+                            <div class="border border-light rounded-circle p-4 mx-auto" style="width: 100px; height: 100px;">
+                                <span class="d-block">25%</span>
+                                <small>Low Stock</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Forgot Password Link -->
-            <div class="position-relative" style="height: 50px;">
-                <a href="#" class="position-absolute" style="top:-20px; left:100px;">Forgot password?</a>
+            <div class="col-md-6">
+                <div class="chart">
+                    <h5>Orders</h5>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="border border-light p-3">
+                                <div class="d-flex justify-content-between">
+                                    <span>Jan</span>
+                                    <span>50 Orders</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+
+                            <div class="border border-light p-3 mt-3">
+                                <div class="d-flex justify-content-between">
+                                    <span>Feb</span>
+                                    <span>75 Orders</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+
+                            <div class="border border-light p-3 mt-3">
+                                <div class="d-flex justify-content-between">
+                                    <span>Mar</span>
+                                    <span>30 Orders</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--//item-->
+<section id="item-section">
+
+    <img id="img5" src="assest/images/img_2.png" alt="">
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <h1 class="text-center">Item</h1>
+
+        <!-- Search Section -->
+        <div class="row g-3 mt-4">
+            <div class="col-md-8 mx-auto">
+                <div class="card border-0 p-3 text-light">
+                    <h5 class="mb-3">Item Search:</h5>
+                    <form class="d-flex justify-content-between">
+                        <input id="txtItemSearch" type="text" class="form-control me-2 bg-secondary text-light border-0" placeholder="Search...">
+                        <select id="itemSearchByDropDown" class="form-select ms-2 bg-secondary text-light border-0" aria-label="Search By">
+                            <option selected>Name</option>
+                            <option>ID</option>
+
+                        </select>
+                    </form>
+                    <div class="d-flex justify-content-center mt-4">
+                        <button id="itemSearch" type="button" class="btn btn-warning">Search</button>
+                    </div>
+                    <div  class="d-flex mt-3">
+                        <button class="btn btn-danger m-3">Delete</button>
+                        <button class="btn btn-success m-3">Detail</button>
+                        <button class="btn btn-secondary m-3">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item Buttons (New Item, View All Items) -->
+        <div class="row g-3 mt-4">
+            <div class="col d-flex justify-content-center">
+                <button id="ItemNew" data-bs-toggle="modal" data-bs-target="#itemModal" class="btn btn-dark p-3" style="box-shadow: 2px 2px 10px 0 white; border: 1px solid yellow;">New Item</button>
+                <button id="ViewAllItem" class="btn btn-dark ms-3 p-3" style="box-shadow: 2px 2px 10px 0 white; border: 1px solid yellow;">View All Items</button>
+            </div>
+        </div>
+
+        <!-- Table Section -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <table class="table table-dark table-striped">
+                    <thead>
+                    <tr>
+                        <th>Item Code</th>
+                        <th>Item Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                    </thead>
+                    <tbody data-bs-toggle="modal" data-bs-target="#itemModal1"  id="ItemTableBody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!--//customer-->
+<section id="customer-section" >
+    <img id="img6" src="assest/images/img_2.png" alt="">
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <h1 class="text-center">Customer</h1>
+
+        <!-- Search Section -->
+        <div class="row g-3 mt-4">
+            <div class="col-md-8 mx-auto">
+                <div class="card  border-0 p-3 text-light">
+                    <h5 class="mb-3">Customer Search:</h5>
+                    <form class="d-flex justify-content-between">
+                        <input id="txtSearch" type="text" class="form-control me-2 bg-secondary text-light border-0" placeholder="Search...">
+
+
+                        <select id="cusSearchByDropDown" class="form-select ms-2 bg-secondary text-light border-0" aria-label="Search By">
+                            <option selected>Name</option>
+                            <option >ID</option>
+                            <option >Contact</option>
+                        </select>
+
+                    </form>
+                    <div class="d-flex justify-content-center  mt-4">
+                        <button id="cusSearch" type="button" class="btn btn-warning">Search</button>
+                    </div>
+
+
+                    <div class="d-flex mt-3">
+                        <button class="cus_Delete_button btn btn-danger m-3">Delete</button>
+                        <button id="clear" class="btn btn-success m-3">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row g-3 mt-4">
+            <div class="col d-flex justify-content-center ">
+                <button id="cusNew" data-bs-toggle="modal" data-bs-target="#cusModal"  class="btn btn-dark p-3 " style="box-shadow: 2px 2px 10px 0 white; border: 1px solid yellow;">New Customer</button>
+                <button id="ViewAll" class="btn btn-dark ms-3 p-3" style="box-shadow: 2px 2px 10px 0 white; border: 1px solid yellow;" >View All Customers</button>
+            </div>
+        </div>
+
+        <!-- Table Section -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <table id="cusTable" class="table table-dark table-striped">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Customer name</th>
+                        <th>Address</th>
+                        <th>Contact</th>
+                        <th>Email</th>
+                    </tr>
+                    </thead>
+                    <tbody  data-bs-toggle="modal" data-bs-target="#cusModal1" id="customerTableBody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!--//order-->
+<section id="order-section">
+    <div class="container mt-2">
+        <h1 class="text-center">Orders</h1>
+
+        <div class="row mt-2">
+            <!-- Invoice Details -->
+            <div class="col-md-4">
+                <div class="card" style="border-radius: 20px;">
+                    <div class="card-header text-white" style="background-color: black; border-radius: 20px 20px 0 0;">
+                        Invoice details
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <label for="order-id" class="form-label">Order id:</label>
+                            <input type="text" class="form-control" id="order-id" placeholder="Order id">
+
+                            <div class="mb-3">
+                                <label for="date" class="form-label">Date:</label>
+                                <input type="date" class="form-control" id="date">
+                            </div>
+                            <div class="mb-3">
+                                <label for="customer-id" class="form-label">Customer Id:</label>
+                                <input type="text" class="form-control" id="customer-id" placeholder="Customer">
+                            </div>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Customer Name:</label>
+                                <input type="text" class="form-control" id="name" placeholder="Customer name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="text" class="form-control" id="email" placeholder="salary">
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Address:</label>
+                                <input type="text" class="form-control" id="address" placeholder="Address">
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
 
-            <!-- Login Button -->
-
-            <div class="d-flex justify-content-center mb-4" style="top: -20px; right:200px;">
-                <button type="submit" class="btn btn-primary" style="background: black; width: 200px; border: 2px solid yellow">Login</button>
-
+            <!-- Item Selection -->
+            <div class="col-md-4">
+                <div class="card" style="border-radius: 20px;">
+                    <div class="card-header text-white" style="background-color: black; border-radius: 20px 20px 0 0">
+                        Item Select
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="item" class="form-label">Item:</label>
+                                <input type="text" class="form-control" id="item" placeholder="Item">
+                            </div>
+                            <div class="mb-3">
+                                <label for="item-code" class="form-label">Item Code:</label>
+                                <input type="text" class="form-control" id="item-code" placeholder="Item code">
+                            </div>
+                            <div class="mb-3">
+                                <label for="item-name" class="form-label">Item Name:</label>
+                                <input type="text" class="form-control" id="item-name" placeholder="Item name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="price" class="form-label">Price:</label>
+                                <input type="text" class="form-control" id="price" placeholder="Price">
+                            </div>
+                            <div class="mb-3">
+                                <label for="qty" class="form-label">QTY on hand:</label>
+                                <input type="text" class="form-control" id="qty" placeholder="Quantity on hand">
+                            </div>
+                            <div class="mb-3">
+                                <label for="order-qty" class="form-label">Order Quantity:</label>
+                                <input type="text" class="form-control" id="order-qty" placeholder="Order quantity">
+                            </div>
+                            <button type="button" class="btn btn-dark w-100" style="background: black; border-radius: 10px; border: 1px solid yellow; box-shadow: 1px 4px 10px 0 white">Add Item</button>
+                        </form>
+                    </div>
+                </div>
             </div>
 
-            <hr style="border: 0; height: 3px; background-color: white; margin: 20px 0;">
-            <!-- Sign Up Link -->
-            <div class="text-center mt-2 text-white">
-                <p>Don't have an account? <a href="#">Sign up</a></p>
+            <!-- Total and Purchase Section -->
+            <div class="col-md-4" >
+                <div class="card p-3" style="border-radius: 20px">
+                    <h5 class="mb-3">Total:</h5>
+                    <h5 class="mb-3">Sub Total:</h5>
+                    <form>
+
+                        <div class="mb-3">
+                            <label for="cash" class="form-label">Cash:</label>
+                            <input type="text" class="form-control" id="cash" placeholder="Cash">
+                        </div>
+                        <div class="mb-3">
+                            <label for="discount" class="form-label">Discount:</label>
+                            <input type="text" class="form-control" id="discount" placeholder="Discount">
+                        </div>
+                        <div class="mb-3">
+                            <label for="balance" class="form-label">Balance:</label>
+                            <input type="text" class="form-control" id="balance" placeholder="Balance">
+                        </div>
+                        <button type="button" class="btn btn-purchase w-100">Purchase</button>
+                    </form>
+                </div>
             </div>
-        </form>
+        </div>
+
+        <!-- Table Section -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <table class="table table-dark table-striped">
+                    <thead>
+                    <tr>
+                        <th>Column Title</th>
+                        <th>Column Title</th>
+                        <th>Column Title</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                        <td>Fusce eu lobortis leo, id dapibus felis.</td>
+                        <td>Donec nunc ligula, tempor sed luctus at, tincidunt vel lorem.</td>
+                    </tr>
+                    <tr>
+                        <td>Nulla facilisi. Proin et erat vitae elit interdum interdum.</td>
+                        <td>Vivamus facilisis erat ac nulla placerat, vitae facilisis nulla.</td>
+                        <td>Curabitur ac ligula quis quam congue efficitur.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- item Structure -->
+<div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="itemModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="itemModalLabel">New Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Form Structure -->
+                <form>
+                    <div class="mb-3">
+                        <label  for="itemCode" class="form-label">Item Code:</label>
+                        <input type="text" class="form-control" id="itemCode" placeholder="Enter item code">
+                    </div>
+                    <div class="mb-3">
+                        <label for="itemName" class="form-label">Item Name:</label>
+                        <input type="text" class="form-control" id="itemName" placeholder="Enter item name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="itemPrice" class="form-label">Item Price:</label>
+                        <input type="number" class="form-control" id="itemPrice" placeholder="Enter item price">
+                    </div>
+                    <div class="mb-3">
+                        <label for="itemQuantity" class="form-label">Item Quantity:</label>
+                        <input type="number" class="form-control" id="itemQuantity" placeholder="Enter item quantity">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-custom" data-bs-dismiss="modal">Close</button>
+                <button id="add_new_Item_Button" type="button" class="btn btn-custom">Save</button>
+                <button type="button" class="btn btn-custom">Renew</button>
+            </div>
+        </div>
     </div>
 </div>
 
+<div class="modal fade" id="itemModal1" tabindex="-1" aria-labelledby="itemModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="itemModalLabel1">Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Form Structure -->
+                <form>
+                    <div class="mb-3">
+                        <label  for="itemCode1" class="form-label">Item Code:</label>
+                        <input type="text" class="form-control" id="itemCode1" placeholder="Enter item code">
+                    </div>
+                    <div class="mb-3">
+                        <label for="itemName1" class="form-label">Item Name:</label>
+                        <input type="text" class="form-control" id="itemName1" placeholder="Enter item name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="itemPrice1" class="form-label">Item Price:</label>
+                        <input type="number" class="form-control" id="itemPrice1" placeholder="Enter item price">
+                    </div>
+                    <div class="mb-3">
+                        <label for="itemQuantity1" class="form-label">Item Quantity:</label>
+                        <input type="number" class="form-control" id="itemQuantity1" placeholder="Enter item quantity">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="add_update_Item_Button" type="button" class="btn btn-custom">Update</button>
+                <button id="delete_Item_Button" type="button" class="btn btn-custom">Delete</button>
+                <button type="button" class="btn btn-custom" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- customer Structure -->
+<div class="modal fade" id="cusModal" tabindex="-1" aria-labelledby="cusModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cusModalLabel">New Customer</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Form Structure -->
+                <form>
+                    <div class="mb-3">
+                        <label for="cusId" class="form-label">Customer id:</label>
+                        <input type="text" class="form-control" id="cusId" placeholder="Enter customer name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cusName" class="form-label">Customer Name:</label>
+                        <input type="text" class="form-control" id="cusName" placeholder="Enter Customer name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cusAddress" class="form-label">Address:</label>
+                        <input type="text" class="form-control" id="cusAddress" placeholder="Enter Address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cusContact" class="form-label">Contact:</label>
+                        <input type="tel" class="form-control" id="cusContact" placeholder="Enter Contact">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cusEmail" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="cusEmail" placeholder="Enter Email">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-custom" data-bs-dismiss="modal">Close</button>
+                <button id="cus_add-button" type="button" class="btn btn-custom">Save</button>
+                <button type="button" class="btn btn-custom">Renew</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cusModal1" tabindex="-1" aria-labelledby="cusModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cusModalLabel1">Customer</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Form Structure -->
+                <form>
+                    <div class="mb-3">
+                        <label for="cusId" class="form-label">Customer id:</label>
+                        <input type="text" class="form-control" id="cusId1" placeholder="Enter customer name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cusName" class="form-label">Customer Name:</label>
+                        <input type="text" class="form-control" id="cusName1" placeholder="Enter Customer name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cusAddress" class="form-label">Address:</label>
+                        <input type="text" class="form-control" id="cusAddress1" placeholder="Enter Address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cusContact" class="form-label">Contact:</label>
+                        <input type="tel" class="form-control" id="cusContact1" placeholder="Enter Contact">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cusEmail1" class="form-label">Email:</label>
+                        <input type="tel" class="form-control" id="cusEmail1" placeholder="Enter Contact">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="cus_Update_button" type="button" class="btn btn-custom">Update</button>
+                <button type="button" class="cus_Delete_button btn btn-custom">Delete</button>
+                <button type="button" class="btn btn-custom" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    let home_nav = document.getElementById("home-nav");
+    let items_nav = document.getElementById("items-nav");
+    let customers_nav = document.getElementById("customers-nav");
+    let orders_nav = document.getElementById("orders-nav");
+
+    let home_section = document.getElementById("home-section");
+    let item_section = document.getElementById("item-section");
+    let customer_section = document.getElementById("customer-section");
+    let order_section = document.getElementById("order-section");
+
+    home_section.style.display="block";
+    item_section.style.display="none";
+    customer_section.style.display="none";
+    order_section.style.display="none";
+
+    home_nav.addEventListener("click", function () {
+        home_section.style.display="block";
+        item_section.style.display="none";
+        customer_section.style.display="none";
+        order_section.style.display="none";
+    });
+    items_nav.addEventListener("click", function () {
+        home_section.style.display="none";
+        item_section.style.display="block";
+        customer_section.style.display="none";
+        order_section.style.display="none";
+    });
+    customers_nav.addEventListener("click", function () {
+        home_section.style.display="none";
+        item_section.style.display="none";
+        customer_section.style.display="block";
+        order_section.style.display="none";
+    });
+    orders_nav.addEventListener("click", function () {
+        home_section.style.display="none";
+        item_section.style.display="none";
+        customer_section.style.display="none";
+        order_section.style.display="block";
+    });
+
+</script>
+
+
+
+
+<script src="assest/lib/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!--<script type="module" src="controller/order_controller.js"></script>-->
+<script type="module" src="controller/customer_controller.js"></script>
+<script type="module" src="controller/Item_controller.js"></script>
 </body>
 </html>
