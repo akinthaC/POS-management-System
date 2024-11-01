@@ -171,6 +171,7 @@ $('#add_update_Item_Button').on('click', function() {
 });
 
 $('.delete_Item_Button').on('click', function() {
+    console.log('delete')
     item_array.splice(selected_item_index, 1);
     deleteCookie(item_array)
     setCookie("item_array", JSON.stringify(item_array), 7);
