@@ -1,10 +1,7 @@
 import OrderModel    from "../model/OrderModel.js";
 import InvoiceModel from "../model/invoiceModel.js";
+import {customer_array,item_array,order_array,invoiceDetail_array} from "../db/dataBase.js";
 
-let order_array=[]
-let invoiceDetail_array=[]
-let customer_array=[]
-let item_array=[]
 const CusContactDropdown = document.getElementById("customerTelDropdownList");
 const CusNameDropdown = document.getElementById("customerNameDropdownList");
 const ItemCodeDropdown = document.getElementById("ItemCodeDropdownList");
@@ -29,18 +26,36 @@ function getCookie(name) {
 
 function loadOrderArrayFromCookies() {
     const orderArrayCookie = getCookie("order_array");
-    order_array = orderArrayCookie ? JSON.parse(orderArrayCookie) : [];
+    if (orderArrayCookie) {
+        order_array.length = 0;
+        order_array.push(...JSON.parse(orderArrayCookie));
+    }
 }
 
 function loadInvoiceArrayFromCookies() {
     const invoiceArrayCookie = getCookie("invoiceDetail_array");
-    invoiceDetail_array = invoiceArrayCookie ? JSON.parse(invoiceArrayCookie) : [];
+    if (invoiceArrayCookie) {
+        invoiceDetail_array.length = 0;
+        invoiceDetail_array.push(...JSON.parse(invoiceArrayCookie));
+    }
 }
 
 function loadItemArrayFromCookies() {
-    const itemArrayCookie = getCookie("item_array");
-    item_array = itemArrayCookie ? JSON.parse(itemArrayCookie) : [];
+    const ItemArrayCookie = getCookie("item_array");
+    if (ItemArrayCookie) {
+        item_array.length = 0;
+        item_array.push(...JSON.parse(ItemArrayCookie));
+    }
 }
+
+function loadCustomerArrayFromCookies() {
+    const CusArrayCookie = getCookie("customerArray");
+    if (CusArrayCookie) {
+        customer_array.length = 0; // Clear existing array
+        customer_array.push(...JSON.parse(CusArrayCookie)); // Populate with data from cookies
+    }
+}
+
 
 
 const deleteCookie = (name) => {
@@ -48,8 +63,7 @@ const deleteCookie = (name) => {
 };
 
 function setCustomerDataToDropDowns(){
-    const CusArrayCookie = getCookie("customerArray");
-    customer_array = CusArrayCookie ? JSON.parse(CusArrayCookie) : [];
+    loadCustomerArrayFromCookies();
 
     customer_array.forEach((item, index) => {
         const contact = item._contact;
@@ -71,8 +85,7 @@ function setCustomerDataToDropDowns(){
 }
 
 function setItemDataToDropDowns(){
-    const itemArrayCookie = getCookie("item_array");
-    item_array = itemArrayCookie ? JSON.parse(itemArrayCookie) : [];
+   loadItemArrayFromCookies();
 
     item_array.forEach((item, index) => {
         const code = item._itemCode;
@@ -247,14 +260,16 @@ $('#Purchase').on('click', function() {
     let orId=$('#order-id').val();
     let cusName=$('#customerNameDropdownList').val();
     let cusContact=$('#customerTelDropdownList').val();
-    let email=$('#email').val();
-    let address=$('#Address').val();
+    let orderQty=$('#order-qty').val();
     let date=$('#date').val();
     let discount = $('#discount').val();
     let total=$('#lblTotal').text();
-    let payAmount=$('#lblTotal').text();
+    let payAmount=$('#lblSubTotal').text();
+    let itemName=$('#ItemNameDropdownList').val();
+    let itemPrice=$('#price').val();
 
-    let invoice = new InvoiceModel(orId,cusName,cusContact,email,address,date)
+
+    let invoice = new InvoiceModel(orId,cusName,cusContact,itemName,itemPrice,orderQty,date,total,discount,payAmount)
     invoiceDetail_array.push(invoice);
     deleteCookie('invoiceDetail_array');
     setCookie("invoiceDetail_array", JSON.stringify(invoiceDetail_array), 7);

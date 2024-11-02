@@ -1,7 +1,6 @@
 /*Customer*/
 import CustomerModel from "../model/customerModel.js";
-
-let customer_array = [];
+import { customer_array } from "../db/dataBase.js";
 let selected_cus_index;
 
 function setCookie(name, value, days) {
@@ -20,7 +19,10 @@ function getCookie(name) {
 
 function loadCustomerArrayFromCookies() {
     const CusArrayCookie = getCookie("customerArray");
-    customer_array = CusArrayCookie ? JSON.parse(CusArrayCookie) : [];
+    if (CusArrayCookie) {
+        customer_array.length = 0; // Clear existing array
+        customer_array.push(...JSON.parse(CusArrayCookie)); // Populate with data from cookies
+    }
 }
 
 
@@ -35,10 +37,10 @@ const generateNextCusId = () => {
 
 function initialize() {
 
-    const CusArrayCookie = getCookie("customerArray");
-    customer_array = CusArrayCookie ? JSON.parse(CusArrayCookie) : [];
-
+    loadCustomerArrayFromCookies();
     loadCustomerTable();
+    generateNextCusId();
+
 
 
 }
@@ -76,12 +78,21 @@ $('#cus_add-button').on('click', function() {
     let customer = new CustomerModel(Cus_Id, Cus_name, address, contact, email);
     console.log(customer);
 
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500
+    });
+
     customer_array.push(customer);
     deleteCookie("customerArray");
     setCookie("customerArray", JSON.stringify(customer_array), 7);
     getCookie("customerArray");
     loadCustomerArrayFromCookies()
     loadCustomerTable();
+
 });
 
 // Customer Search
@@ -159,19 +170,33 @@ $('#cus_Update_button').on('click', function() {
 });
 
 $('.cus_Delete_button').on('click', function() {
-    if (selected_cus_index !== undefined) {
-        customer_array.splice(selected_cus_index, 1);
-        deleteCookie("customerArray");
-        setCookie("customerArray", JSON.stringify(customer_array), 7);
-        getCookie("customerArray");
-        loadCustomerArrayFromCookies();
-        loadCustomerTable();
-        $('#cusModal1').modal('hide');
-    } else {
-        console.log("No customer selected for deletion.");
-    }
-});
 
-$('#clear').on('click', function() {
-    $('#txtSearch').val("");
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            customer_array.splice(selected_cus_index, 1);
+            deleteCookie("customerArray");
+            setCookie("customerArray", JSON.stringify(customer_array), 7);
+            getCookie("customerArray");
+            loadCustomerArrayFromCookies();
+            loadCustomerTable();
+            $('#cusModal1').modal('hide');
+            Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+            });
+        }
+    });
+
+    $('#clear').on('click', function () {
+        $('#txtSearch').val("");
+    });
 });

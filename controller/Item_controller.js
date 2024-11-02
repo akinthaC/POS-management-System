@@ -1,6 +1,7 @@
 import ItemModel from "../model/itemModel.js";
+import {item_array} from "../db/dataBase.js";
 
-let item_array = [];
+
 let selected_item_index;
 const generateNextItemId =() =>{
     $('#itemCode').val(item_array.length+1)
@@ -24,8 +25,11 @@ function getCookie(name) {
 }
 
 function loadItemArrayFromCookies() {
-    const itemArrayCookie = getCookie("item_array");
-    item_array = itemArrayCookie ? JSON.parse(itemArrayCookie) : [];
+    const ItemArrayCookie = getCookie("item_array");
+    if (ItemArrayCookie) {
+        item_array.length = 0;
+        item_array.push(...JSON.parse(ItemArrayCookie));
+    }
 }
 
 const deleteCookie = (name) => {
@@ -35,8 +39,7 @@ const deleteCookie = (name) => {
 
 function initialize() {
 
-    const itemArrayCookie = getCookie("item_array");
-    item_array = itemArrayCookie ? JSON.parse(itemArrayCookie) : [];
+    loadItemArrayFromCookies();
 
     loadItemTable()
 

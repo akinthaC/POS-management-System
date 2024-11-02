@@ -1,13 +1,16 @@
 export default class InvoiceModel {
-    constructor(invoiceOrId, invoiceCusName, invoiceCusContact, invoiceItemName, invoiceItemPrice, invoiceQty, invoiceTotal, invoiceDate) {
+    constructor(invoiceOrId, invoiceCusName, invoiceCusContact, invoiceItemName, invoiceItemPrice, invoiceQty, invoiceDate, invoiceTotal,invoiceDiscount,invoicePayAmount) {
         this._invoiceOrId = invoiceOrId;
         this._invoiceCusName = invoiceCusName;
         this._invoiceCusContact = invoiceCusContact;
         this._invoiceItemName = invoiceItemName;
         this._invoiceItemPrice = invoiceItemPrice;
         this._invoiceQty = invoiceQty;
-        this._invoiceTotal = invoiceTotal;
         this._invoiceDate = invoiceDate;
+        this._invoiceTotal = invoiceTotal;
+        this._invoiceDiscount = invoiceDiscount;
+        this._invoicePayAmount = invoicePayAmount;
+
     }
 
     get invoiceOrId() {
@@ -72,5 +75,22 @@ export default class InvoiceModel {
 
     set invoiceDate(value) {
         this._invoiceDate = value;
+
+    }
+
+    get invoiceDiscount() {
+        return this._invoiceDiscount;
+    }
+
+    set invoiceDiscount(value) {
+        this._invoiceDiscount = value;
+    }
+
+    get invoicePayAmount() {
+        return this._invoicePayAmount;
+    }
+
+    set invoicePayAmount(value) {
+        this._invoicePayAmount = value;
     }
 }
